@@ -1,20 +1,19 @@
 <template>
   <v-app>
-    <v-container fluid>
-      <p>Hola</p>
-      <v-btn color="primary" elevation="2">asd</v-btn>
-
-      <v-btn class="ma-2" text icon color="red lighten-2">
-        <v-icon>mdi-thumb-down</v-icon>
-      </v-btn>
-
+    <v-container>
+      <Testing></Testing>
     </v-container>
   </v-app>
 </template>
 
 <script>
+import Testing from './testing.vue';
+
 export default {
-  name: "App"
+  components: { Testing },
+  name: "App",
+  methods: {
+  }
 }
 </script>
 

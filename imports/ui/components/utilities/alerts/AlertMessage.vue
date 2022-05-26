@@ -5,7 +5,9 @@
                                     :left="x==='left'"
                                     :color="color"
                                     :multi-line="mode==='multi-line'"
-                                    :vertical="mode==='vertical'">
+                                    :vertical="mode==='vertical'"
+                                    :timeout="timeout"
+                                    >
         <v-card color="transparent" elevation="0">
             <v-card-title>
                 <v-icon v-if="icon" dark left>
@@ -33,6 +35,13 @@
 
 <script>
 
+const colors = {
+    success: "check_circle",
+    error: "close",
+    info: "info",
+    warning: 'warning'
+}
+
 export default{
     name: "AlertMessage",
     data(){
@@ -45,26 +54,38 @@ export default{
             icon: null,
             title:'',
             btnCloseText: '',
-            text:''
+            text:'',
+            timeout: 6000
         }
     }, 
     methods:{
-        showAlertSimple(color, title)
+        /**
+         * Show the alert with main configuration options
+         * @param {*} color Alert's Color: Success, error, info, warning
+         * @param {*} title The text to be displayed in the Alert
+         * @param {*} closeText The text of the close Tooltip
+         */
+        showAlertSimple(color, title, closeText)
         {
             this.color = color;
             this.title = title;
             this.x="right";
             this.y="bottom";
-            if(color==="success")
-            {
-                this.icon = "check_circle";
-            } else if (color==="error"){
-                this.icon = "close";
-            } else if (color==="info"){
-                this.icon = "info";
-            }
+            this.icon = colors[color] || 'check_circle';
+
+            this.text = '';
+            this.mode = '';
+            this.timeout = 6000;
+            this.snackbar=true;
+            this.btnCloseText = closeText;
         }
     }
 }
 
 </script>
+
+<style>
+    .v-snack__content{
+        padding:0 !important;
+    }
+</style>
