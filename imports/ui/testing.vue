@@ -11,7 +11,7 @@
         </v-btn>
         <alert-message ref="refAlertMessageTest"></alert-message>
         <loader ref="refLoader"></loader>
-        <modal-remove ref="refModalRemove" v-bind:modalData="userTemp"></modal-remove>
+        <modal-remove ref="refModalRemove" v-bind:modalData="userTemp" @id_element="deleteUser"></modal-remove><!--TODO I Dont like this-->
     </div>
 
 </template>
@@ -58,6 +58,9 @@ export default {
             this.userTemp.mainNameElement = user.name;
 
             this.$refs.refModalRemove.dialog = true;
+        },
+        deleteUser(idUser){
+            console.log("ID del usuario a eliminiar", idUser );
         }
     }
 }

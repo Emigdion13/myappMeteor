@@ -1,8 +1,6 @@
 <template>
   <v-app>
-    <v-container>
-      <Testing></Testing>
-    </v-container>
+    <router-view name="allPageView"></router-view>
   </v-app>
 </template>
 
@@ -10,7 +8,7 @@
 import Testing from './testing.vue';
 
 export default {
-  components: { Testing },
+  components: {  },
   name: "App",
   methods: {
   }
