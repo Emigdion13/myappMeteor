@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="title">Reset Password</div>
-    <v-form @submit.prevent="resetPassword">
+    <div class="title">Set Password</div>
+    <v-form @submit.prevent="setPassword">
       <v-text-field
         v-model="user.password"
         id="inputPassword"
@@ -26,7 +26,7 @@
         counter
         @click:append="showPass.confirm = !showPass.confirm"
       ></v-text-field>
-      <div class="dflex start">
+      <div class="dflex justify-start mt-2">
         <v-btn type="submit" color="primary" rounded>Reset</v-btn>
       </div>
     </v-form>
@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: "ResetPassword",
+  name: "SetInitialPassword",
   data() {
     return {
       user: {
@@ -50,8 +50,8 @@ export default {
   },
   methods: {
     resetPassword() {
-      console.log("Contrasenias", this.user);
       console.log("Token:", this.$route.params.token);
+      console.log("Contrasenias", this.user);
     },
   },
 };

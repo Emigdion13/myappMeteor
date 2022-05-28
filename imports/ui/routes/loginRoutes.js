@@ -2,6 +2,7 @@ import LytAuth from "../layouts/LytAuth";
 import Login from "../views/Auth/Login";
 import ForgotPassword from "../views/Auth/ForgotPassword";
 import ResetPassword from "../views/Auth/ResetPassword";
+import SetInitialPassword from "../views/Auth/SetInitialPassword";
 
 export default {
   path: "/login",
@@ -28,6 +29,13 @@ export default {
       path: "/reset-password/:token",
       components: {
         sectionView: ResetPassword,
+      },
+    },
+    {
+      name: "enrollAccount",
+      path: "/enroll-account/:token",
+      components: {
+        sectionView: SetInitialPassword,
       },
     },
   ]
