@@ -3,15 +3,17 @@
     <div class="title">Reset Password</div>
     <v-form @submit.prevent="resetPassword">
       <v-text-field
-        v-model="user.password"
-        id="inputPassword"
-        name="password"
-        autocomplete="new-password"
-        :append-icon="showPass.new?'text':'password'"
-        :type="showPass.new ? 'text':'password'"
-        @click:append="showPass.new = !showPass.new"
-      >
-      </v-text-field>
+            v-model="user.password"
+            id="password"
+            :append-icon="showPass.new ? 'mdi-eye' : 'mdi-eye-off'"
+            :type="showPass.new ? 'text' : 'password'"
+            name="Password"
+            autocomplete="new-password"
+            label="Password"
+            hint="At least 8 characters"
+            counter
+            @click:append="showPass.new = !showPass.new"
+          ></v-text-field>
     </v-form>
   </div>
 </template>
