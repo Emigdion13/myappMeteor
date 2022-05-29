@@ -1,9 +1,26 @@
 import loginRoutes from "./loginRoutes";
+import LytSPA from "../layouts/LytSPA";
+import Home from "../views/Home/Home";
 
 export default [
-    {
-        path:'*',
-        redirect: '/login'
+  {
+    path: "*",
+    redirect: "/login",
+  },
+  loginRoutes,
+  {
+    path: "/",
+    components: {
+      allPageView: LytSPA,
     },
-    loginRoutes
+    children: [
+      {
+        name: "home",
+        path: "",
+        components: {
+          sectionView: Home,
+        },
+      },
+    ],
+  },
 ];
