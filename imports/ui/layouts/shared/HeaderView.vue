@@ -1,33 +1,38 @@
 <template>
-    <v-app-bar
-      app
-      dark
-      shrink-on-scroll
-      src="https://picsum.photos/1920/1080?random"
-    >
-      <template v-slot:img="{ props }">
-        <v-img
-          v-bind="props"
-          gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
-        ></v-img>
-      </template>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+  <v-app-bar
+    app
+    dark
+    shrink-on-scroll
+    src="https://picsum.photos/1920/1080?random"
+  >
+    <template v-slot:img="{ props }">
+      <v-img
+        v-bind="props"
+        gradient="to top right, rgba(100,115,201,.7), rgba(25,32,72,.7)"
+      ></v-img>
+    </template>
+    <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Application</v-toolbar-title>
+    <v-toolbar-title>Application</v-toolbar-title>
 
-      <v-spacer></v-spacer>
+    <v-spacer></v-spacer>
 
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-      <user-logged></user-logged>
+    <v-btn icon>
+      <v-icon>mdi-heart</v-icon>
+    </v-btn>
+    <user-logged></user-logged>
 
-      <template v-slot:extension>
-        <v-tabs align-with-title>
-          <v-tab v-for="option in options" :key="option.title" v-text="option.title"></v-tab>
-        </v-tabs>
-      </template>
-    </v-app-bar>
+    <template v-slot:extension>
+      <v-tabs align-with-title>
+        <v-tab
+          v-for="option in options"
+          :key="option.title"
+          v-text="option.title"
+          :to="{name:option.nameRoute}"
+        ></v-tab>
+      </v-tabs>
+    </template>
+  </v-app-bar>
 </template>
 
 <script>
@@ -41,11 +46,16 @@ export default {
       options: [
         {
           icon: "person",
-          title: "Usuarios",
+          title: "HOME",
+          nameRoute: 'home'
         },
         {
           icon: "user",
-          title: "Perfiles",
+          title: "USERS",
+        },
+        {
+          icon: "user",
+          title: "PROFILES",
         },
       ],
     };

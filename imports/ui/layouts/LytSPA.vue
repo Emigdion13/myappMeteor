@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <header-view></header-view>
-    <v-main>
+    <v-main id="main_section">
       <router-view name="sectionView"></router-view>
     </v-main>
     <footer-view></footer-view>
@@ -21,5 +21,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+    #main_section{
+        margin-bottom: 80px;
+        position:relative;
+    }
 </style>

@@ -1,6 +1,7 @@
 import loginRoutes from "./loginRoutes";
 import LytSPA from "../layouts/LytSPA";
 import Home from "../views/Home/Home";
+import ConfigureAccount from "../views/Account/ConfigureAccount";
 
 export default [
   {
@@ -19,6 +20,13 @@ export default [
         path: "",
         components: {
           sectionView: Home,
+        },
+      },
+      {
+        name: "home.account",
+        path: "/account",
+        components: {
+          sectionView: ConfigureAccount,
         },
       },
     ],

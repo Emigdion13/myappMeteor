@@ -8,7 +8,7 @@
     </template>
 
     <v-list
-      ><v-list-item href="#">Account</v-list-item>
+      ><v-list-item href="#" :to="{name:'home.account'}">Account</v-list-item>
       <v-list-item href="#">Log Out</v-list-item>
     </v-list>
   </v-menu>
