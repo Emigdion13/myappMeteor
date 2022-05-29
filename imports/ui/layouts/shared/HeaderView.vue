@@ -24,9 +24,7 @@
 
       <template v-slot:extension>
         <v-tabs align-with-title>
-          <v-tab>Tab 1</v-tab>
-          <v-tab>Tab 2</v-tab>
-          <v-tab>Tab 3</v-tab>
+          <v-tab v-for="option in options" :key="option.title" v-text="option.title"></v-tab>
         </v-tabs>
       </template>
     </v-app-bar>
