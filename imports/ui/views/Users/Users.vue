@@ -89,7 +89,7 @@ export default {
       headersFilter: {
         name: "",
         username: "",
-        email: "",
+    email: "",
       },
       users: [
         {

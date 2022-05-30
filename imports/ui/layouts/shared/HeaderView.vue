@@ -57,6 +57,7 @@ export default {
         {
           icon: "user",
           title: "PROFILES",
+          nameRoute: 'home.profiles'
         },
       ],
     };
