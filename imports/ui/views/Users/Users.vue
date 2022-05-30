@@ -25,6 +25,18 @@
             sort-by="name"
             class="elevation-1"
           >
+          <template v-slot:item.action="{item}">
+
+              <v-tooltip bottom>
+                  <template v-slot:activator="{on}">
+                      <v-icon color="info" v-on="on" small clas="mr-2" @click="openEditUser(item)">
+                          mdi-pencil
+                      </v-icon>
+                  </template>
+                  <span>edit</span>
+              </v-tooltip>
+
+          </template>
             <template v-slot:body.append="{ isMobile }">
               <tr v-if="!isMobile">
                 <td>
@@ -133,6 +145,7 @@ export default {
             );
           },
         },
+        {value:'action', text:'Opciones', sortable:false}
       ];
     },
   },
@@ -149,6 +162,11 @@ export default {
       const currentRoute = this.$router.currentRoute.name.split(".").pop();
       this.activeMainView = currentRoute === "users";
     },
+    openEditUser(userToEdit){
+        //TODO save in vuex
+        console.log("USer to edit:", userToEdit);
+        this.$router.push({name:'home.users.edit'}); //Redireccionando
+    }
   },
 };
 </script>

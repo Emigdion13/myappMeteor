@@ -15,5 +15,12 @@ export default {
           usersOptionsView: SaveUser
       }
     },
+    {
+      name: "home.users.edit",
+      path: "edit",
+      components:{
+          usersOptionsView: SaveUser
+      }
+    },
   ],
 };
