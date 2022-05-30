@@ -2,25 +2,27 @@ import Users from "../views/Users/Users.vue";
 import SaveUser from "../views/Users/SaveUser.vue";
 
 export default {
-  name: "home.users",
   path: "users",
   components: {
-    sectionView: Users,
+    sectionView: {
+      render: (c) => c("router-view"),
+    },
   },
   children: [
     {
-      name: "home.users.create",
-      path: "create",
-      components:{
-          usersOptionsView: SaveUser
-      }
+      name: "home.users",
+      path: "",
+      component: Users,
     },
     {
-      name: "home.users.edit",
+      name: "home.users.create",
+      path: "create",
+      component: SaveUser,
+    },
+    {
+      name: "home.user.edit",
       path: "edit",
-      components:{
-          usersOptionsView: SaveUser
-      }
+      component: SaveUser,
     },
   ],
 };
