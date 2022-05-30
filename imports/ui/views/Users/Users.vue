@@ -67,13 +67,13 @@ export default {
           value: "username",
           text: "UserName",
           sortable: true,
-          filter: (value) => { return value != null && typeof value === "string" && value.toString().toLowerCase().indexOf(this.headersFilter.name.toLocaleLowerCase()) !== -1 }
+          filter: (value) => { return value != null && typeof value === "string" && value.toString().toLowerCase().indexOf(this.headersFilter.username.toLocaleLowerCase()) !== -1 }
         },
         {
           value: "email",
           text: "Email",
           sortable: true,
-          filter: (value) => { return value != null && typeof value === "string" && value.toString().toLowerCase().indexOf(this.headersFilter.name.toLocaleLowerCase()) !== -1 }
+          filter: (value) => { return value != null && typeof value === "string" && value.toString().toLowerCase().indexOf(this.headersFilter.email.toLocaleLowerCase()) !== -1 }
         },
       ];
     },
