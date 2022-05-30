@@ -11,7 +11,7 @@
         <v-card color="transparent" elevation="0">
             <v-card-title>
                 <v-icon v-if="icon" dark left>
-                    {{icon}}
+                    mdi-{{icon}}
                 </v-icon>
                 <v-spacer></v-spacer>
                 <span class="white--text">{{title}}</span>
@@ -36,7 +36,7 @@
 <script>
 
 const colors = {
-    success: "check_circle",
+    success: "check",
     error: "close",
     info: "info",
     warning: 'warning'
@@ -57,6 +57,9 @@ export default{
             text:'',
             timeout: 6000
         }
+    },
+    mounted() {
+        Vue.prototype.$alert=this;
     }, 
     methods:{
         /**

@@ -22,7 +22,9 @@ export default {
             progressLabel: ""
         }
     },
-
+    mounted() {
+        Vue.prototype.$loader = this;
+    },
     methods:
     {
         activate(progressLabel = 'Cargando...') {
