@@ -29,7 +29,7 @@
 
               <v-tooltip bottom>
                   <template v-slot:activator="{on}">
-                      <v-icon color="info" v-on="on" small clas="mr-2" @click="openEditUser(item)">
+                      <v-icon color="info" v-on="on" small class="mr-2" @click="openEditUser(item)">
                           mdi-pencil
                       </v-icon>
                   </template>
@@ -37,7 +37,7 @@
               </v-tooltip>
               <v-tooltip bottom>
                   <template v-slot:activator="{on}">
-                      <v-icon color="error" v-on="on" small clas="mr-2" @click="openRemoveModal(item)">
+                      <v-icon color="error" v-on="on" small class="mr-2" @click="openRemoveModal(item)">
                           mdi-delete
                       </v-icon>
                   </template>

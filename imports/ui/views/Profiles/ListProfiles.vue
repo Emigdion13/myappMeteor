@@ -45,7 +45,7 @@
 
 <script>
 export default {
-  name: "Profiles",
+  name: "ListProfiles",
   data() {
     return {
       headers: [
