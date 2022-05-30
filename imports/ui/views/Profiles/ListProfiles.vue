@@ -27,7 +27,13 @@
           <template v-slot:item.action="{ item }">
             <v-tooltip bottom>
               <template v-slot:activator="{ on }">
-                <v-icon color="info" v-on="on" small class="mr-2" @click="openEditProfile(item)">
+                <v-icon
+                  color="info"
+                  v-on="on"
+                  small
+                  class="mr-2"
+                  @click="openEditProfile(item)"
+                >
                   mdi-pencil
                 </v-icon>
               </template>
@@ -35,7 +41,13 @@
             </v-tooltip>
             <v-tooltip bottom>
               <template v-slot:activator="{ on }">
-                <v-icon color="error" v-on="on" small class="mr-2">
+                <v-icon
+                  color="error"
+                  v-on="on"
+                  small
+                  class="mr-2"
+                  @click="openEditProfile(item)"
+                >
                   mdi-delete
                 </v-icon>
               </template>
@@ -45,12 +57,21 @@
         </v-data-table>
       </v-col>
     </v-row>
+    <modal-remove
+      ref="refModalRemove"
+      v-bind:modalData="userTemp"
+      @id_element="deleteUser"
+    ></modal-remove>
   </v-container>
 </template>
 
 <script>
+import ModalRemove from "../../components/utilities/Modals/ModalRemove.vue";
 export default {
   name: "ListProfiles",
+  components: {
+    ModalRemove,
+  },
   data() {
     return {
       headers: [
@@ -65,15 +86,32 @@ export default {
         },
         { _id: 2, name: "Chat", description: "User chat" },
       ],
+      profileTemp: {
+        preposition: "the",
+        typeElement: "profile",
+        mainNameElement: "",
+        _id: null,
+        element: {},
+      },
     };
   },
   methods: {
-    openEditProfile(item){
+    openEditProfile(item) {
       //TODO: USE VUEX
       console.log("profile: ", item);
-      this.$router.push({name: 'home.profiles.edit'});
-    }
-  }
+      this.$router.push({ name: "home.profiles.edit" });
+    },
+    openRemoveModal(profile) {
+      console.log("Profile:", profile);
+      this.profileTemp.element = profile;
+      this.profileTemp._id = profile._id;
+      this.profileTemp.mainNameElement = profile.description;
+      this.$refs.refModalRemove.dialog = true;
+    },
+    deleteProfile(idProfile) {
+      console.log("User to Delete", idProfile);
+    },
+  },
 };
 </script>
 
