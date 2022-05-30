@@ -46,7 +46,7 @@
                   v-on="on"
                   small
                   class="mr-2"
-                  @click="openEditProfile(item)"
+                  @click="openRemoveModal(item)"
                 >
                   mdi-delete
                 </v-icon>
@@ -59,8 +59,8 @@
     </v-row>
     <modal-remove
       ref="refModalRemove"
-      v-bind:modalData="userTemp"
-      @id_element="deleteUser"
+      v-bind:modalData="profileTemp"
+      @id_element="deleteProfile"
     ></modal-remove>
   </v-container>
 </template>
