@@ -17,7 +17,6 @@
      
      <router-view name="sectionView"> </router-view>
 
-
     </v-col>
     <v-col
       xs="12"

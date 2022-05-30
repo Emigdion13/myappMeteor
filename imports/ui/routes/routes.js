@@ -1,7 +1,8 @@
 import loginRoutes from "./loginRoutes";
 import LytSPA from "../layouts/LytSPA";
 import Home from "../views/Home/Home";
-import ConfigureAccount from "../views/Account/ConfigureAccount";
+import ConfigureAccount from "../views/Account/ConfigureAccount.vue";
+import usersRoutes from "./usersRoutes";
 
 export default [
   {
@@ -29,6 +30,7 @@ export default [
           sectionView: ConfigureAccount,
         },
       },
+      usersRoutes
     ],
   },
 ];

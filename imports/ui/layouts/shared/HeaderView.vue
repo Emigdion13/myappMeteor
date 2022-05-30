@@ -52,6 +52,7 @@ export default {
         {
           icon: "user",
           title: "USERS",
+          nameRoute: 'home.users'
         },
         {
           icon: "user",
