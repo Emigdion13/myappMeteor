@@ -8,8 +8,8 @@
           sort-by="name"
           class="elevation-1"
         >
-        <template v-slot:body.append>
-            <tr>
+        <template v-slot:body.append="{isMobile}">
+            <tr v-if="!isMobile">
                 <td>
                     <v-text-field v-model="headersFilter.name" type="text" label="Name"></v-text-field>
                 </td>
