@@ -23,12 +23,12 @@
     <user-logged></user-logged>
 
     <template v-slot:extension>
-      <v-tabs align-with-title>
+      <v-tabs v-model="optionSelected" align-with-title>
         <v-tab
           v-for="option in options"
           :key="option.title"
           v-text="option.title"
-          :to="{name:option.nameRoute}"
+          @click="gotoView(option)"
         ></v-tab>
       </v-tabs>
     </template>
@@ -47,20 +47,41 @@ export default {
         {
           icon: "person",
           title: "HOME",
-          nameRoute: 'home'
+          nameRoute: "home",
         },
         {
           icon: "user",
           title: "USERS",
-          nameRoute: 'home.users'
+          nameRoute: "home.users",
         },
         {
           icon: "user",
           title: "PROFILES",
-          nameRoute: 'home.profiles'
+          nameRoute: "home.profiles",
         },
       ],
     };
+  },
+  created() {
+    this.updateSelectedOption();
+  },
+  watch: {
+    '$route'() {
+      this.updateSelectedOption();
+    },
+  },
+  methods: {
+    gotoView(option) {
+      this.$router.push({ name: option.nameRoute });
+    },
+    updateSelectedOption() {
+      const optionSelected = this.options.find(
+        (option) => option.nameRoute === this.$route.name
+      );
+      this.optionSelected = optionSelected
+        ? this.options.indexOf(optionSelected)
+        : this.optionSelected;
+    },
   },
 };
 </script>
