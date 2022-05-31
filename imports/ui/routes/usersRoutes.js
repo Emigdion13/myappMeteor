@@ -20,7 +20,7 @@ export default {
       component: SaveUser,
     },
     {
-      name: "home.user.edit",
+      name: "home.users.edit",
       path: "edit",
       component: SaveUser,
     },

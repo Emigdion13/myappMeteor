@@ -16,12 +16,24 @@ new ValidatedMethod({
         },
       });
     } catch (Exception) {
-        console.error('user.save: ', Exception);
-        throw new Meteor.Error('403', 'The Information Provided is not Valid');
+      console.error("user.save: ", Exception);
+      throw new Meteor.Error("403", "The Information Provided is not Valid");
     }
   },
   run(user) {
-      console.log('user: ', user);
-      Accounts.createUser(); //Accounts es global
+    let responseMessage = "";
+    try {
+      Accounts.createUser({
+        username: user.username,
+        email: user.emails[0].address,
+        profile: user.profile,
+      }); //Accounts es global
+      responseMessage = "User created Successfully";
+    } catch (Exception) {
+      console.error("user.save: ", Exception);
+      throw new Meteor.Error("500", "Error while trying to create an user");
+    }
+
+    return responseMessage;
   },
 });
