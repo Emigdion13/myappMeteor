@@ -1,4 +1,10 @@
+import './Permissions';
+
 import '../../api/Users/UsersCtrl';
+import '../../api/Users/UsersPubs';
+
+import '../../api/Profiles/ProfileSeeder';
+import '../../api/Profiles/ProfilesCtrl';
 
 /*import {ValidatedMethod} from 'meteor/mdg:validated-method';
 import {check} from 'meteor/check';
